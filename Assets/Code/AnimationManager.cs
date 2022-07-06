@@ -33,11 +33,14 @@ public class AnimationManager : MonoBehaviour
         
         foreach(var animClip in animator.runtimeAnimatorController.animationClips)
         {
-            animClip.AddEvent(new AnimationEvent()
+            if (animClip.name != "walk" && animClip.name != "run")
             {
-                time = animClip.length,
-                functionName = "OnAnimationComplete"
-            });
+                animClip.AddEvent(new AnimationEvent()
+                {
+                    time = animClip.length,
+                    functionName = "OnAnimationComplete"
+                });
+            }
         }
     }
 
