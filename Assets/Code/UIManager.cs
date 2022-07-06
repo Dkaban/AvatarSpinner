@@ -29,4 +29,10 @@ public class UIManager : MonoBehaviour
     {
         backgroundMaterial.color = new Color(Random.value, Random.value, Random.value);
     }
+
+    private void RemoveListeners()
+    {
+        changeCharacterColorButton.onClick.RemoveAllListeners();
+        changeBackgroundButton.onClick.RemoveAllListeners();
+    }
 }
